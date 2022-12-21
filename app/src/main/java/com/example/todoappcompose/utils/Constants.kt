@@ -5,5 +5,5 @@ package com.example.todoappcompose.utils
  */
 object Constants {
     const val DATABASE_TABLE = "todo_table"
-    const val DATABASE_Name = "todo_database"
+    const val DATABASE_NAME = "todo_database"
 }
