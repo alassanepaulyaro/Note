@@ -8,20 +8,30 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.todoappcompose.R
+import com.example.todoappcompose.data.viewmodel.ShareViewModel
 import com.example.todoappcompose.ui.theme.fabBackgroundColor
+import com.example.todoappcompose.utils.SearchAppBarState
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun ListScreen(
-    navigateToTaskScreen : (taskId: Int) -> Unit
+    navigateToTaskScreen : (taskId: Int) -> Unit,
+    shareViewModel: ShareViewModel
 ) {
+    val searchAppBarState: SearchAppBarState by shareViewModel.searchAppBarState
+    val searchTextSate: String by shareViewModel.searchTextState
+
     Scaffold(
         topBar = {
-                 ListAppBar()
+            ListAppBar(
+                shareViewModel = shareViewModel,
+                searchAppBarState = searchAppBarState,
+                searchTextSate = searchTextSate
+            )
         },
         content = {},
         floatingActionButton = {
@@ -35,7 +45,7 @@ fun ListFab (
 ) {
     FloatingActionButton(
         onClick = {
-        onFabClicked(-1)
+            onFabClicked(-1)
         },
         backgroundColor = MaterialTheme.colors.fabBackgroundColor
     ) {
@@ -45,10 +55,4 @@ fun ListFab (
             tint = Color.White
         )
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun ListScreenPreview() {
-    ListScreen(navigateToTaskScreen = {})
 }
