@@ -1,4 +1,4 @@
-package com.example.todoappcompose.ui.theme.viewmodel
+package com.example.todoappcompose.data.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,14 +7,14 @@ import com.example.todoappcompose.data.repository.ToDoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * Share ViewModel
  */
 @HiltViewModel
-class ShareViewModel(private val repository: ToDoRepository) : ViewModel() {
+class ShareViewModel @Inject constructor(private val repository: ToDoRepository) : ViewModel() {
 
     private val _allTasks = MutableStateFlow<List<ToDoTask>>(emptyList())
     val allTasks: StateFlow<List<ToDoTask>> = _allTasks
