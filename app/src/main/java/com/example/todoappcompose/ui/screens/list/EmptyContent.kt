@@ -19,6 +19,9 @@ import androidx.compose.ui.unit.dp
 import com.example.todoappcompose.R
 import com.example.todoappcompose.ui.theme.MediumGray
 
+/**
+ * Empty content View
+ */
 @Composable
 fun EmptyContent() {
     Column(

@@ -29,6 +29,9 @@ import com.example.todoappcompose.ui.theme.topAppBarContentColor
 import com.example.todoappcompose.utils.SearchAppBarState
 import com.example.todoappcompose.utils.TrailingIconState
 
+/**
+ * Search App Bar view
+ */
 @Composable
 fun ListAppBar(
     shareViewModel: ShareViewModel,
@@ -137,6 +140,13 @@ fun SortAction(
                 onSortClicked(Priority.LOW)
             }) {
                 PriorityItem(priority = Priority.LOW)
+            }
+
+            DropdownMenuItem(onClick = {
+                expanded = false
+                onSortClicked(Priority.MEDIUM)
+            }) {
+                PriorityItem(priority = Priority.MEDIUM)
             }
 
             DropdownMenuItem(onClick = {

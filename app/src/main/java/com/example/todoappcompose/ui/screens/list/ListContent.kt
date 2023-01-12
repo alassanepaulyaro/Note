@@ -20,6 +20,9 @@ import com.example.todoappcompose.data.models.ToDoTask
 import com.example.todoappcompose.ui.theme.*
 import com.example.todoappcompose.utils.RequestState
 
+/**
+ *  List tasks View
+ */
 @Composable
 fun ListContent(
     tasks: RequestState<List<ToDoTask>>,
@@ -55,6 +58,9 @@ fun DisplayTask(tasks: List<ToDoTask>,
     }
 }
 
+/**
+ * Task item View
+ */
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun TaskItem(
