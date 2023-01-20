@@ -122,6 +122,10 @@ fun DisplaySnackBar(
         }
     }
 }
+
+/**
+ *  set Message snack bar
+ */
 private fun setMessage(
     action: Action,
     taskTitle: String
