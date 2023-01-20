@@ -1,6 +1,5 @@
 package com.example.todoappcompose.navigation.destination
 
-import android.util.Log
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -30,8 +29,10 @@ fun NavGraphBuilder.taskComposable(
         shareViewModel.getSelectedTask(taskId = taskId)
         val selectedTask by shareViewModel.selectedTask.collectAsState()
 
-        LaunchedEffect(key1 = taskId){
-            shareViewModel.updateTaskFields(selectedTask = selectedTask )
+        LaunchedEffect(key1 = selectedTask){
+            if (selectedTask != null || taskId == -1) {
+                shareViewModel.updateTaskFields(selectedTask = selectedTask)
+            }
         }
 
         TaskScreen(

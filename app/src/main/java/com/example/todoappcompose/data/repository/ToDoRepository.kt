@@ -24,17 +24,17 @@ class ToDoRepository @Inject constructor(private val toDoDao: ToDoDao) {
          toDoDao.addTask(toDoTask = toDoTask)
     }
 
-    suspend fun updatetask(toDoTask: ToDoTask) {
+    suspend fun updateTask(toDoTask: ToDoTask) {
          toDoDao.updateTask(toDoTask = toDoTask)
     }
 
- /*   suspend fun deleteTask(toDoTask: ToDoTask) {
+    suspend fun deleteTask(toDoTask: ToDoTask) {
          toDoDao.deleteTask(toDoTask = toDoTask)
     }
 
-    suspend fun deleteAllTasks(toDoTask: ToDoTask) {
+    suspend fun deleteAllTasks() {
         toDoDao.deleteAllTasks()
-    }*/
+    }
 
     fun searchDatabase(searchQuery: String): Flow<List<ToDoTask>> {
         return toDoDao.searchDatabase(searchQuery = searchQuery)
