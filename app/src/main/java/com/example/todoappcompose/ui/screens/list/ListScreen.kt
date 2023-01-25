@@ -24,8 +24,9 @@ fun ListScreen(
     navigateToTaskScreen : (taskId: Int) -> Unit,
     shareViewModel: ShareViewModel
 ) {
-    LaunchedEffect(key1 = true){
+    LaunchedEffect(key1 = true) {
         shareViewModel.getAllTasks()
+        shareViewModel.readSortState()
     }
 
     val action by shareViewModel.action
@@ -34,6 +35,9 @@ fun ListScreen(
     val searchedTasks by shareViewModel.searchedTasks.collectAsState()
     val searchAppBarState: SearchAppBarState by shareViewModel.searchAppBarState
     val searchTextSate: String by shareViewModel.searchTextState
+    val sortState by shareViewModel.sortState.collectAsState()
+    val lowPriorityTasks by shareViewModel.lowPriorityTask.collectAsState()
+    val highPriorityTasks by shareViewModel.highPriorityTask.collectAsState()
 
     val scaffoldState = rememberScaffoldState()
 
@@ -61,6 +65,9 @@ fun ListScreen(
                 allTasks = allTasks,
                 searchedTasks =  searchedTasks,
                 searchAppBarState = searchAppBarState,
+                lowPriorityTasks = lowPriorityTasks,
+                highPriorityTasks = highPriorityTasks,
+                sortState = sortState,
                 navigateToTaskScreen = navigateToTaskScreen
             )
         },
