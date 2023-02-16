@@ -12,7 +12,6 @@ import com.example.todoappcompose.navigation.SetUpNavigation
 import com.example.todoappcompose.ui.theme.ToDoAppComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 

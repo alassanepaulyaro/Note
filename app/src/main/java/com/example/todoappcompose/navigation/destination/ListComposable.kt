@@ -1,7 +1,6 @@
 package com.example.todoappcompose.navigation.destination
 
 
-import android.util.Log
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NavGraphBuilder
